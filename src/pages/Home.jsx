@@ -215,26 +215,32 @@ function Home() {
   return (
     <div className="space-y-16">
       {/* Hero Section */}
-      <section className="relative h-[600px] flex items-center justify-center">
-        <div className="absolute inset-0 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <motion.div
+          className="absolute inset-0"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+        >
           <img
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80"
-            alt="Hero background"
+            src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1600"
             className="w-full h-full object-cover"
+            alt=""
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
-        
+          <div className="absolute inset-0 bg-gradient-to-b
+            from-black/70 via-black/50 to-black/80"/>
+        </motion.div>
+
         <div className="relative container text-center text-white space-y-8">
-          <motion.h1 
-            className="text-5xl font-bold"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            className="text-4xl md:text-5xl xl:text-6xl font-extrabold"
           >
             Invest and Trade in Real Estate with Cryptocurrency
           </motion.h1>
-          <motion.p 
+          <motion.p
             className="text-xl max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -250,7 +256,7 @@ function Home() {
           <h2 className="text-3xl font-bold mb-4">Start Investing in Minutes</h2>
           <p className="text-secondary-600">Your journey to crypto-powered real estate investment</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {investmentSteps.map((step, index) => (
             <motion.div
@@ -281,7 +287,7 @@ function Home() {
             <h2 className="text-3xl font-bold mb-4">How GoldenCity Works</h2>
             <p className="text-secondary-300">Understanding our tokenized real estate platform</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {howItWorks.map((item, index) => (
               <motion.div
@@ -309,7 +315,7 @@ function Home() {
           <h2 className="text-3xl font-bold mb-4">Featured Investment Opportunities</h2>
           <p className="text-secondary-600">Curated properties with verified returns and immediate tokenization</p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProperties.map((property, index) => (
             <motion.div
@@ -333,7 +339,7 @@ function Home() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{property.title}</h3>
                 <p className="text-secondary-600 mb-4">{property.location}</p>
-                
+
                 <div className="flex justify-between items-center mb-4">
                   <div>
                     <p className="text-sm text-secondary-500">Price</p>
@@ -381,7 +387,7 @@ function Home() {
             <h2 className="text-3xl font-bold mb-4">Why Choose GoldenCity</h2>
             <p className="text-secondary-600">Experience the future of real estate investment</p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {advantages.map((advantage, index) => (
               <motion.div
@@ -400,7 +406,7 @@ function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="container">
         <div className="bg-primary-600 rounded-2xl p-8 md:p-12 text-white text-center">
@@ -424,7 +430,7 @@ function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Blog */}
       <div className="container bg-white py-24">
         <motion.div
@@ -531,7 +537,7 @@ function Home() {
           </div>
         </motion.div>
       </section>
-      
+
       {/* Discord CTA */}
       <section className="py-12 bg-primary-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

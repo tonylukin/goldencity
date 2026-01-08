@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../../hooks/useTheme';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -13,6 +15,19 @@ function Navbar() {
     { name: 'Blog', href: '/blog' },
   ];
 
+  const getThemeButton = () => {
+    return (
+      <button
+        onClick={toggleTheme}
+        className="p-2 rounded-lg transition-colors
+                           bg-secondary-100 dark:bg-secondary-800
+                           text-secondary-900 dark:text-secondary-100"
+      >
+        {theme === 'dark' ? <FiSun/> : <FiMoon/>}
+      </button>
+    );
+  }
+
   return (
     <nav className="bg-white shadow-sm">
       <div className="container">
@@ -20,7 +35,7 @@ function Navbar() {
           <div className="flex">
             <Link to="/" className="flex items-center">
               <svg width="30" height="35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="15" cy="20" r="10" stroke="#0682ff"/>
+                <circle cx="15" cy="20" r="10" stroke="#0682ff"/>
                   <circle cx="15" cy="20" r="6" stroke="#0682ff" strokeWidth="3"/>
               </svg>  
               <span className="text-2xl font-bold text-primary-600 mt-1.5">GoldenCity</span>
@@ -43,6 +58,7 @@ function Navbar() {
             >
               Connect
             </button>
+            {getThemeButton()}
           </div>
 
           {/* Mobile menu button */}
@@ -52,7 +68,7 @@ function Navbar() {
               className="text-secondary-600 hover:text-primary-600"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              {isOpen ? <FiX size={24}/> : <FiMenu size={24}/>}
             </button>
           </div>
         </div>
@@ -77,6 +93,7 @@ function Navbar() {
               >
                 Connect
               </button>
+              {getThemeButton()}
             </div>
           </div>
         )}

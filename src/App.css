@@ -1,6 +1,178 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*#root {*/
+/*  max-width: 1280px;*/
+/*  margin: 0 auto;*/
+/*  padding: 2rem;*/
+/*  text-align: center;*/
+/*}*/
+
+html, .bg-white {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ================================
+   GLOBAL DARK MODE
+================================ */
+.dark, .dark .bg-white, .dark body {
+  background-color: #0f172a; /* slate-900 */
+  color: #e5e7eb; /* gray-200 */
+}
+
+/* ================================
+   TYPOGRAPHY
+================================ */
+
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4 {
+  color: #f9fafb;
+}
+
+html.dark p,
+html.dark span {
+  color: #cbd5f5;
+}
+
+/* ================================
+   SECTIONS
+================================ */
+
+html.dark .container {
+  background-color: transparent;
+}
+
+html.dark .bg-secondary-50 {
+  background-color: #020617;
+}
+
+html.dark .bg-secondary-900 {
+  background-color: #020617;
+}
+
+html.dark .bg-secondary-800 {
+  background-color: #020617;
+}
+
+/* ================================
+   HERO OVERLAY
+================================ */
+
+html.dark .bg-black.bg-opacity-50 {
+  background-color: rgba(2, 6, 23, 0.85);
+}
+
+/* ================================
+   CARDS (Properties, Blog, FAQ)
+================================ */
+
+html.dark .card,
+html.dark .shadow-md,
+html.dark .shadow-xl {
+  background-color: #020617;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+/* Blog / FAQ / Property cards */
+html.dark .rounded-lg,
+html.dark .rounded-xl {
+  background-color: #020617;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+html.dark .btn {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+html.dark .btn:hover {
+  background-color: #1d4ed8;
+}
+
+html.dark .btn.bg-white {
+  background-color: #020617;
+  color: #93c5fd;
+  border: 1px solid #1e3a8a;
+}
+
+/* ================================
+   PROPERTY STATUS BADGES
+================================ */
+
+html.dark .bg-white.px-3.py-1.rounded-full {
+  background-color: #020617;
+  color: #93c5fd;
+  border: 1px solid #1e3a8a;
+}
+
+/* ================================
+   FAQ
+================================ */
+
+html.dark .divide-secondary-100 > * + * {
+  border-color: #1e293b;
+}
+
+html.dark button {
+  color: #e5e7eb;
+}
+
+html.dark button:hover {
+  color: #93c5fd;
+}
+
+/* ================================
+   BLOG CATEGORY TAG
+================================ */
+
+html.dark .bg-white.text-primary-600 {
+  background-color: #020617;
+  color: #93c5fd;
+}
+
+/* ================================
+   DISCORD CTA
+================================ */
+
+html.dark .bg-primary-900 {
+  background-color: #020617;
+}
+
+html.dark .bg-primary-700 {
+  background-color: #1e40af;
+}
+
+/* ================================
+   INPUTS / FORMS (future-proof)
+================================ */
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #020617;
+  color: #e5e7eb;
+  border-color: #1e293b;
+}
+
+/* ================================
+   SCROLLBAR (OPTIONAL)
+================================ */
+
+html.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 6px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
