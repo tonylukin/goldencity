@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { useTheme } from '../../hooks/useTheme';
@@ -6,6 +6,7 @@ import { useTheme } from '../../hooks/useTheme';
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const [isSticky, setIsSticky] = useState(false);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -14,6 +15,15 @@ function Navbar() {
     { name: 'FAQ', href: '/faq' },
     { name: 'Blog', href: '/blog' },
   ];
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsSticky(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const getThemeButton = () => {
     return (
@@ -29,7 +39,14 @@ function Navbar() {
   }
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className={`
+        fixed top-0 left-0 w-full z-50
+        transition-all duration-300 ease-out
+        ${isSticky
+          ? 'bg-white/80 dark:bg-secondary-900/80 backdrop-blur-md shadow-md'
+          : 'bg-white dark:bg-secondary-900'}
+      `}
+    >
       <div className="container">
         <div className="flex justify-between h-16">
           <div className="flex">
